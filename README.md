@@ -1,6 +1,15 @@
 # Sistema de Estoque
 
-API REST para gerenciamento de produtos e movimentações de estoque, desenvolvida com Python e FastAPI.
+API REST para gerenciamento de produtos e movimentações de estoque, criada com Python e FastAPI.
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-2.0-D71F00)](https://www.sqlalchemy.org/)
+[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-orange)](#roadmap)
+
+## Sobre o projeto
+
+Sistema de portfólio para controlar produtos, quantidades e movimentações de entrada e saída de estoque.
 
 ## Funcionalidades
 
@@ -12,20 +21,24 @@ API REST para gerenciamento de produtos e movimentações de estoque, desenvolvi
 - Histórico de movimentações
 - Validação automática com Pydantic
 - Banco SQLite com SQLAlchemy
-- Documentação Swagger
+- Documentação interativa com Swagger
 
 ## Tecnologias
 
-- Python 3.10+
-- FastAPI
-- SQLAlchemy
-- SQLite
-- Pydantic
-- Pytest
+| Tecnologia | Uso |
+|---|---|
+| Python 3.10+ | Linguagem principal |
+| FastAPI | API REST e documentação |
+| SQLAlchemy | ORM e persistência |
+| SQLite | Banco de dados local |
+| Pydantic | Validação dos dados |
+| Pytest | Testes planejados |
 
-## Instalação
+## Como executar
 
 ```bash
+git clone -b feature/estoque-inicial https://github.com/FerSigma0301/sistema-estoque-python.git
+cd sistema-estoque-python
 python -m venv .venv
 ```
 
@@ -43,19 +56,10 @@ source .venv/bin/activate
 
 ```bash
 pip install -r requirements.txt
-```
-
-## Executar
-
-```bash
 uvicorn app.main:app --reload
 ```
 
-Acesse a documentação em:
-
-```text
-http://127.0.0.1:8000/docs
-```
+Acesse a documentação em `http://127.0.0.1:8000/docs`.
 
 ## Endpoints
 
@@ -78,15 +82,13 @@ http://127.0.0.1:8000/docs
   "name": "Teclado USB",
   "sku": "TEC-001",
   "category": "Periféricos",
-  "price": 89.9,
+  "price": 89.90,
   "quantity": 10,
   "minimum_stock": 3
 }
 ```
 
 ## Exemplo de movimentação
-
-Entrada:
 
 ```json
 {
@@ -95,14 +97,7 @@ Entrada:
 }
 ```
 
-Saída:
-
-```json
-{
-  "movement_type": "exit",
-  "quantity": 2
-}
-```
+Para uma saída, use `"movement_type": "exit"`.
 
 ## Estrutura
 
@@ -117,11 +112,15 @@ app/
     └── movements.py
 ```
 
-## Próximas melhorias
+## Roadmap
 
-- Testes automatizados
-- Filtro por categoria e estoque baixo
-- Autenticação de usuários
-- Migrações com Alembic
-- Interface web
-- Docker e deploy
+- [ ] Testes automatizados
+- [ ] Filtro por categoria e estoque baixo
+- [ ] Autenticação de usuários
+- [ ] Migrações com Alembic
+- [ ] Interface web
+- [ ] Docker e deploy
+
+## Licença
+
+Este projeto está sob a licença MIT.
